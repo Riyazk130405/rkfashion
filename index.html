@@ -7,43 +7,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-pink: #ff6bad;
-            --soft-gold: #d4af37;
-            --dark-text: #333;
-            --light-bg: #fff5f8;
+            --deep-purple: #6a0dad; /* Royal Purple */
+            --bright-purple: #8e44ad;
+            --soft-purple: #f3e5f5; /* Very light lavender for background */
+            --dark-text: #2c3e50;
+            --white: #ffffff;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
+            background-color: var(--soft-purple);
             color: var(--dark-text);
         }
 
         /* Limited Offer Banner */
         .promo-banner {
-            background-color: var(--primary-pink);
+            background-color: var(--deep-purple);
             color: white;
             text-align: center;
             padding: 10px 0;
             font-weight: bold;
             font-size: 0.9rem;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         header {
-            background: white;
-            padding: 20px;
+            background: var(--white);
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .brand-name {
-            font-size: 2.5rem;
-            color: var(--primary-pink);
+            font-size: 2.8rem;
+            color: var(--deep-purple);
             margin: 0;
             font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+
+        .brand-tagline {
+            color: var(--bright-purple);
+            font-style: italic;
+            margin-top: 5px;
         }
 
         .container {
@@ -52,58 +61,106 @@
             padding: 20px;
         }
 
+        /* Offer Section - Purple Theme */
         .offer-section {
-            background: white;
-            border: 2px dashed var(--primary-pink);
+            background: var(--white);
+            border: 2px dashed var(--deep-purple);
             border-radius: 15px;
-            margin: 20px 0;
-            padding: 20px;
+            margin: 30px 0;
+            padding: 25px;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             text-align: center;
         }
 
-        .offer-card h3 { color: var(--soft-gold); margin-bottom: 5px; }
-        .price { font-size: 1.5rem; font-weight: bold; color: var(--primary-pink); }
+        .offer-card {
+            padding: 10px;
+        }
+
+        .offer-card h3 { 
+            color: var(--dark-text); 
+            margin-bottom: 5px; 
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .price { 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            color: var(--deep-purple); 
+        }
 
         /* Product Sections */
         .section-title {
             text-align: center;
-            margin: 50px 0 30px;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--primary-pink);
-            display: inline-block;
-            width: 100%;
+            margin: 60px 0 30px;
+            font-size: 2.2rem;
+            color: var(--deep-purple);
+            border-bottom: 3px solid var(--deep-purple);
+            display: block;
             padding-bottom: 10px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .product-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 6px 18px rgba(106, 13, 173, 0.1);
+            transition: transform 0.3s ease;
             text-align: center;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
         }
 
-        .product-card:hover { transform: translateY(-5px); }
+        .product-card:hover { 
+            transform: translateY(-10px); 
+        }
 
-        .image-placeholder {
+        /* Image Placeholder for when you add photos */
+        .product-img {
             width: 100%;
-            height: 250px;
-            background-color: #eee;
+            height: 300px;
+            background-color: #f9f9f9;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: #ccc;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: var(--bright-purple);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons */
+        .buy-now {
+            background-color: var(--deep-purple);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .buy-now:hover {
+            background-color: #4b087d;
         }
 
         /* Floating WhatsApp Button */
@@ -113,40 +170,36 @@
             right: 30px;
             background-color: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-decoration: none;
             z-index: 1000;
         }
 
-        .buy-now {
-            background-color: var(--primary-pink);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
+        footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: var(--deep-purple); 
+            background: var(--white);
+            margin-top: 50px;
         }
-
-        footer { text-align: center; padding: 40px; color: #777; }
     </style>
 </head>
 <body>
 
     <div class="promo-banner">
-        ✨ LIMITED OFFER: GET THE BEST DEALS TODAY! ✨
+        💜 Limited Time Offer: 4 Small Scrunchies @ ₹49 | 4 Big Scrunchies @ ₹89 💜
     </div>
 
     <header>
-        <h1 class="brand-name">RK Fashions Hub</h1>
-        <p>Your Daily Dose of Elegance</p>
+        <h1 class="brand-name">RK FASHIONS HUB</h1>
+        <p class="brand-tagline">Exquisite Accessories for the Modern Woman</p>
     </header>
 
     <div class="container">
@@ -154,42 +207,42 @@
         <div class="offer-section">
             <div class="offer-card">
                 <h3>4 Small Scrunchies</h3>
-                <div class="price">Only ₹49</div>
+                <div class="price">₹49 Only</div>
             </div>
             <div class="offer-card">
                 <h3>4 Big Scrunchies</h3>
-                <div class="price">Only ₹89</div>
+                <div class="price">₹89 Only</div>
             </div>
         </div>
 
-        <h2 class="section-title">Hair Bands Collection</h2>
+        <h2 class="section-title">Hair Bands Section</h2>
         <div class="product-grid">
             <div class="product-card">
-                <img src="scrunchie.jpg.jpg" style="width:100%; height:250px; object-fit:cover;">
-                <h3>Satin Small Scrunchies</h3>
-                <p>₹49</p>
-                <a href="https://wa.me/916303777398?text=I'm interested in Floral Hair Band" class="buy-now">Order on WhatsApp</a>
+                <div class="product-img">Image of Hair Band 1</div>
+                <div class="product-name">Premium Velvet Band</div>
+                <div class="product-price">₹149</div>
+                <a href="https://wa.me/916303777398?text=Hi! I want to order the Premium Velvet Hair Band" class="buy-now">Order on WhatsApp</a>
             </div>
             <div class="product-card">
-                <div class="image-placeholder">Image of Hair Band 2</div>
-                <h3>Satin Big Scrunchies</h3>
-                <p>₹89</p>
+                <div class="product-img">Image of Hair Band 2</div>
+                <div class="product-name">Floral Silk Band</div>
+                <div class="product-price">₹129</div>
                 <a href="https://wa.me/916303777398" class="buy-now">Order on WhatsApp</a>
             </div>
         </div>
 
-        <h2 class="section-title">Hand Bands Collection</h2>
+        <h2 class="section-title">Hand Bands Section</h2>
         <div class="product-grid">
             <div class="product-card">
-                <div class="image-placeholder">Image of Hand Band 1</div>
-                <h3>Boho Charm Bracelet</h3>
-                <p>₹99</p>
+                <div class="product-img">Image of Hand Band 1</div>
+                <div class="product-name">Pearl Wrist Band</div>
+                <div class="product-price">₹199</div>
                 <a href="https://wa.me/916303777398" class="buy-now">Order on WhatsApp</a>
             </div>
             <div class="product-card">
-                <div class="image-placeholder">Image of Hand Band 2</div>
-                <h3>Crystal Wrist Band</h3>
-                <p>₹199</p>
+                <div class="product-img">Image of Hand Band 2</div>
+                <div class="product-name">Bohemian Charm Band</div>
+                <div class="product-price">₹99</div>
                 <a href="https://wa.me/916303777398" class="buy-now">Order on WhatsApp</a>
             </div>
         </div>
@@ -197,7 +250,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 RK Fashions Hub. All Rights Reserved.</p>
+        <p>&copy; 2024 <strong>RK Fashions Hub</strong>. Crafted with Style.</p>
+        <p>Contact: +91 63037 77398</p>
     </footer>
 
     <a href="https://wa.me/916303777398" class="whatsapp-btn" target="_blank">
@@ -205,5 +259,4 @@
     </a>
 
 </body>
-
 </html>
